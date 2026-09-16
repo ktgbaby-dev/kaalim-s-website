@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KTG MUSIC — CH. 01 — ON AIR</title>
+<meta name="description" content="KTG Music. Not an artist. A channel. Tune in.">
+
+<!-- FONTS
+     Display  = Anton (chunky, expressive, the voice of the channel)
+     Hand     = Permanent Marker (marker/handwriting annotations)
+     Function = Space Grotesk (clean sans, body copy / technical info)
+     Cutout   = Anton also used per-letter for the ransom-note logo treatment
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Permanent+Marker&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📡</text></svg>">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============ INTRO / OPENING SEQUENCE ============ -->
+<div id="intro" aria-hidden="false">
+  <canvas id="static-canvas"></canvas>
+  <div class="intro-content">
+    <div class="intro-beat" data-beat="static">
+      <span class="intro-noise-label">NO SIGNAL</span>
+    </div>
+    <div class="intro-beat" data-beat="signal">
+      <span class="intro-freq">— · — · SCANNING FREQUENCY · — · —</span>
+    </div>
+    <div class="intro-beat" data-beat="ident">
+      <span class="intro-ch">CH. 01</span>
+      <span class="intro-ktg">KTG</span>
+    </div>
+    <div class="intro-beat" data-beat="tuning">
+      <span class="intro-tuning">NOW TUNING IN<span class="dots"><span>.</span><span>.</span><span>.</span></span></span>
+    </div>
+  </div>
+  <button id="skip-intro" type="button">SKIP ▸▸</button>
+</div>
+
+<!-- ============ CRT / SCANLINE / GRAIN OVERLAYS (persistent) ============ -->
+<div class="crt-overlay" aria-hidden="true"></div>
+<div class="grain-overlay" aria-hidden="true"></div>
+
+<!-- ============ STICKY NAV ============ -->
+<header id="site-nav">
+  <a href="#on-air" class="nav-logo">KTG<span class="nav-logo-dot">•</span>MUSIC</a>
+  <button id="nav-toggle" aria-label="Toggle channel guide" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <nav id="nav-links">
+    <a href="#on-air"><span class="nav-num">01</span> ON AIR</a>
+    <a href="#library"><span class="nav-num">02</span> THE LIBRARY</a>
+    <a href="#programming"><span class="nav-num">03</span> PROGRAMMING</a>
+    <a href="#character"><span class="nav-num">04</span> MEET THE CHARACTER</a>
+    <a href="#schedule"><span class="nav-num">05</span> SCHEDULE</a>
+    <a href="#transmit" class="nav-cta"><span class="nav-num">06</span> TRANSMIT</a>
+  </nav>
+  <div class="live-badge"><span class="live-dot"></span>ON AIR</div>
+</header>
+
+<main>
+
+  <!-- ============ 01 — ON AIR (HERO) ============ -->
+  <section id="on-air" class="section section--hero">
+    <div class="broadcast-bars" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow eyebrow--hand">you are watching</p>
+        <h1 class="hero-title">
+          <span class="cutout-letter c1">K</span><span class="cutout-letter c2">T</span><span class="cutout-letter c3">G</span>
+          <span class="hero-title-sub">MUSIC</span>
+        </h1>
+        <p class="hero-tagline">NOT AN ARTIST. A CHANNEL. STOP SCROLLING — YOU'RE TUNED IN.</p>
+
+        <div class="now-playing-card">
+          <span class="now-playing-label">● NOW PLAYING — LIVE SIGNAL</span>
+          <!-- PLACEHOLDER: swap in the current single/EP title + cover art -->
+          <h2 class="now-playing-title">"TRACK TITLE HERE"</h2>
+          <p class="now-playing-meta">KTG · Broadcast Date: MM.DD.YYYY</p>
+          <div class="now-playing-actions">
+            <!-- PLACEHOLDER: link to streaming platform / player embed -->
+            <a href="#" class="btn btn--solid">▶ PLAY BROADCAST</a>
+            <a href="#library" class="btn btn--outline">SEE THE LIBRARY</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-media">
+        <div class="hero-frame">
+          <div class="tv-chrome">
+            <span class="tv-dot"></span><span class="tv-dot"></span><span class="tv-dot"></span>
+            <span class="tv-chrome-label">CH.01</span>
+          </div>
+          <img src="images/hero-on-air.jpg" alt="KTG on camera, arms crossed in front of a hand-painted sunburst mural" loading="eager">
+          <div class="hero-frame-scan" aria-hidden="true"></div>
+        </div>
+        <svg class="doodle doodle--star hero-doodle-1" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 5 L61 38 L96 38 L67 59 L78 92 L50 71 L22 92 L33 59 L4 38 L39 38 Z" /></svg>
+        <svg class="doodle doodle--bolt hero-doodle-2" viewBox="0 0 60 100" aria-hidden="true"><path d="M35 0 L5 55 L28 55 L20 100 L58 40 L33 40 Z" /></svg>
+        <span class="sticker sticker--rec">● REC</span>
+      </div>
+    </div>
+
+    <a href="#library" class="scroll-cue">
+      <span>KEEP WATCHING</span>
+      <svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 3v18M5 14l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+    </a>
+  </section>
+
+  <!-- ============ 02 — THE LIBRARY ============ -->
+  <section id="library" class="section section--library">
+    <div class="section-head">
+      <span class="section-kicker">02 / DISCOGRAPHY</span>
+      <h2 class="section-title">THE LIBRARY</h2>
+      <p class="section-sub section-sub--hand">every broadcast, archived.</p>
+    </div>
+
+    <div class="library-grid">
+      <!-- RELEASE CARD 1 -->
+      <article class="release-card">
+        <div class="release-art">
+          <img src="images/library-01.jpg" alt="Release artwork placeholder — swap for single cover" loading="lazy">
+          <span class="release-tape release-tape--1">SINGLE</span>
+        </div>
+        <!-- PLACEHOLDER: release title / type / year -->
+        <h3 class="release-title">"SINGLE TITLE ONE"</h3>
+        <p class="release-meta">Single · 2026</p>
+        <a href="#" class="release-link">TUNE IN ▸</a>
+      </article>
+
+      <!-- RELEASE CARD 2 -->
+      <article class="release-card release-card--offset">
+        <div class="release-art">
+          <img src="images/library-02.jpg" alt="Release artwork placeholder — swap for EP cover" loading="lazy">
+          <span class="release-tape release-tape--2">EP</span>
+        </div>
+        <!-- PLACEHOLDER: release title / type / year -->
+        <h3 class="release-title">"EP TITLE HERE"</h3>
+        <p class="release-meta">EP · 4 Tracks · 2026</p>
+        <a href="#" class="release-link">TUNE IN ▸</a>
+      </article>
+
+      <!-- RELEASE CARD 3 (placeholder art) -->
+      <article class="release-card">
+        <div class="release-art release-art--placeholder">
+          <span class="placeholder-label">DROP<br>COVER<br>ART<br>HERE</span>
+          <span class="release-tape release-tape--3">ALBUM</span>
+        </div>
+        <!-- PLACEHOLDER: release title / type / year -->
+        <h3 class="release-title">"ALBUM TITLE HERE"</h3>
+        <p class="release-meta">Album · 12 Tracks · 2025</p>
+        <a href="#" class="release-link">TUNE IN ▸</a>
+      </article>
+
+      <!-- RELEASE CARD 4 (placeholder art / collab) -->
+      <article class="release-card release-card--offset">
+        <div class="release-art release-art--placeholder">
+          <span class="placeholder-label">DROP<br>COVER<br>ART<br>HERE</span>
+          <span class="release-tape release-tape--1">FEATURE</span>
+        </div>
+        <!-- PLACEHOLDER: collaborator + release title -->
+        <h3 class="release-title">"COLLAB TITLE" <span class="release-feat">w/ ARTIST</span></h3>
+        <p class="release-meta">Collaboration · 2025</p>
+        <a href="#" class="release-link">TUNE IN ▸</a>
+      </article>
+    </div>
+
+    <p class="library-note">// full catalog syndicated on all major platforms — links in STAY TUNED below.</p>
+  </section>
+
+  <!-- ============ 03 — PROGRAMMING ============ -->
+  <section id="programming" class="section section--programming">
+    <div class="section-head section-head--light">
+      <span class="section-kicker">03 / TONIGHT'S LINEUP</span>
+      <h2 class="section-title">PROGRAMMING</h2>
+      <p class="section-sub section-sub--hand">videos. visualizers. live performance. static-y photographs.</p>
+    </div>
+
+    <div class="programming-grid">
+      <!-- VIDEO SLOT 1: replace iframe src with real YouTube/Vimeo embed -->
+      <div class="program-slot program-slot--video">
+        <div class="video-embed">
+          <!-- PLACEHOLDER: paste real <iframe> embed code here -->
+          <iframe src="about:blank" title="Video placeholder — replace with real embed" loading="lazy"></iframe>
+          <div class="video-embed-fallback">
+            <span>▶</span>
+            <p>VIDEO SLOT — EMBED PLAYER HERE</p>
+          </div>
+        </div>
+        <p class="program-caption">"VIDEO TITLE" — Official Visual</p>
+      </div>
+
+      <!-- PHOTO SLOT: real photography -->
+      <figure class="program-slot program-slot--photo">
+        <img src="images/programming-01.jpg" alt="Behind-the-scenes photograph, hands framing the camera">
+        <figcaption class="program-caption">behind the broadcast — dir. cut</figcaption>
+      </figure>
+
+      <!-- PHOTO SLOT: real photography -->
+      <figure class="program-slot program-slot--photo program-slot--tall">
+        <img src="images/programming-02.jpg" alt="Performance photograph, low angle detail shot">
+        <figcaption class="program-caption">on set — close signal</figcaption>
+      </figure>
+
+      <!-- VIDEO SLOT 2 -->
+      <div class="program-slot program-slot--video">
+        <div class="video-embed">
+          <!-- PLACEHOLDER: paste real <iframe> embed code here -->
+          <iframe src="about:blank" title="Video placeholder — replace with real embed" loading="lazy"></iframe>
+          <div class="video-embed-fallback">
+            <span>▶</span>
+            <p>VIDEO SLOT — EMBED PLAYER HERE</p>
+          </div>
+        </div>
+        <p class="program-caption">"VISUALIZER" — Now Airing</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 — MEET THE CHARACTER ============ -->
+  <section id="character" class="section section--character">
+    <div class="character-grid">
+      <div class="character-media">
+        <div class="character-frame">
+          <img src="images/character-portrait.jpg" alt="Portrait of KTG, moody low light, gold chain visible">
+        </div>
+        <span class="sticker sticker--tape sticker--tape1"></span>
+        <span class="sticker sticker--tape sticker--tape2"></span>
+        <svg class="doodle doodle--scribble" viewBox="0 0 200 60" aria-hidden="true"><path d="M2 30 Q 20 5, 40 30 T 80 30 T 120 30 T 160 30 T 198 30" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>
+      </div>
+
+      <div class="character-copy">
+        <span class="section-kicker">04 / CHARACTER FILE</span>
+        <h2 class="section-title">MEET THE CHARACTER</h2>
+
+        <div class="character-dossier">
+          <p class="dossier-line"><span class="dossier-tag">FREQUENCY:</span> unlisted</p>
+          <p class="dossier-line"><span class="dossier-tag">FIRST BROADCAST:</span> [YEAR]</p>
+          <p class="dossier-line"><span class="dossier-tag">KNOWN FOR:</span> [signature sound / scene / city]</p>
+        </div>
+
+        <!-- PLACEHOLDER BIO — write as character lore, not a resume -->
+        <p class="character-bio">
+          They say static isn't silence — it's a signal nobody's decoded yet. KTG found the
+          frequency anyway. [Replace this paragraph with the real origin story: where the
+          character comes from, how the "channel" persona started, the first thing that ever
+          aired.] Every release since has been another transmission from the same set —
+          [replace with more lore: influences, obsessions, the myth of the character].
+        </p>
+        <p class="character-bio">
+          [Second paragraph placeholder — tone, mission, what viewers can expect from the
+          channel going forward. Keep it in-character: no bullet-pointed resume, no "Awards
+          include..." Just the story.]
+        </p>
+
+        <a href="#transmit" class="btn btn--outline">TRANSMIT A MESSAGE ▸</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 05 — SCHEDULE / STAY TUNED ============ -->
+  <section id="schedule" class="section section--schedule">
+    <div class="schedule-bg" style="background-image:url('images/schedule-bg.jpg')" aria-hidden="true"></div>
+    <div class="schedule-overlay"></div>
+
+    <div class="schedule-content">
+      <div class="section-head">
+        <span class="section-kicker">05 / AIRTIME</span>
+        <h2 class="section-title">SCHEDULE</h2>
+        <p class="section-sub section-sub--hand">catch it live before it repeats.</p>
+      </div>
+
+      <ul class="schedule-list">
+        <!-- PLACEHOLDER EVENT ROWS -->
+        <li class="schedule-row">
+          <span class="schedule-date">MM.DD</span>
+          <span class="schedule-event">Event / Show Name — City, Venue</span>
+          <a href="#" class="schedule-link">TICKETS ▸</a>
+        </li>
+        <li class="schedule-row">
+          <span class="schedule-date">MM.DD</span>
+          <span class="schedule-event">Event / Show Name — City, Venue</span>
+          <a href="#" class="schedule-link">TICKETS ▸</a>
+        </li>
+        <li class="schedule-row">
+          <span class="schedule-date">MM.DD</span>
+          <span class="schedule-event">Event / Show Name — City, Venue</span>
+          <a href="#" class="schedule-link">TICKETS ▸</a>
+        </li>
+        <li class="schedule-row schedule-row--muted">
+          <span class="schedule-date">TBA</span>
+          <span class="schedule-event">More broadcasts scheduled soon</span>
+          <span class="schedule-link schedule-link--disabled">STAY TUNED</span>
+        </li>
+      </ul>
+
+      <div class="stay-tuned">
+        <h3 class="stay-tuned-title">STAY TUNED</h3>
+        <p class="section-sub section-sub--hand">the channel never really goes off-air.</p>
+        <div class="social-grid">
+          <!-- PLACEHOLDER: replace # with real profile URLs -->
+          <a href="#" class="social-chip">INSTAGRAM</a>
+          <a href="#" class="social-chip">TIKTOK</a>
+          <a href="#" class="social-chip">YOUTUBE</a>
+          <a href="#" class="social-chip">SPOTIFY</a>
+          <a href="#" class="social-chip">APPLE MUSIC</a>
+          <a href="#" class="social-chip">X / TWITTER</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 06 — TRANSMIT A MESSAGE ============ -->
+  <section id="transmit" class="section section--transmit">
+    <div class="transmit-static" aria-hidden="true"></div>
+    <div class="section-head">
+      <span class="section-kicker">06 / OPEN CHANNEL</span>
+      <h2 class="section-title">TRANSMIT A MESSAGE</h2>
+      <p class="section-sub section-sub--hand">bookings, press, weird fan mail — it all comes through here.</p>
+    </div>
+
+    <!-- PLACEHOLDER FORM: wire up to Formspree / Netlify Forms / your backend of choice -->
+    <form class="transmit-form" action="#" method="POST">
+      <div class="form-row">
+        <label for="t-name">YOUR NAME</label>
+        <input id="t-name" name="name" type="text" placeholder="who's calling in?" required>
+      </div>
+      <div class="form-row">
+        <label for="t-email">YOUR EMAIL</label>
+        <input id="t-email" name="email" type="email" placeholder="where do we transmit back?" required>
+      </div>
+      <div class="form-row">
+        <label for="t-reason">REASON FOR CONTACT</label>
+        <select id="t-reason" name="reason">
+          <option>General / Fan Mail</option>
+          <option>Booking / Live Show</option>
+          <option>Press / Media</option>
+          <option>Collaboration</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label for="t-message">MESSAGE</label>
+        <textarea id="t-message" name="message" rows="5" placeholder="say something into the static..." required></textarea>
+      </div>
+      <button type="submit" class="btn btn--solid btn--block">SEND TRANSMISSION ▸</button>
+      <p class="form-note">// this form is a placeholder — connect it to Formspree, Netlify Forms, or your own endpoint.</p>
+    </form>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer id="site-footer">
+  <div class="footer-top">
+    <span class="footer-logo">KTG<span class="nav-logo-dot">•</span>MUSIC</span>
+    <p class="footer-tag section-sub--hand">this has been a KTG broadcast. thanks for tuning in.</p>
+  </div>
+
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>ON AIR</h4>
+      <a href="#on-air">ON AIR</a>
+      <a href="#library">THE LIBRARY</a>
+      <a href="#programming">PROGRAMMING</a>
+    </div>
+    <div class="footer-col">
+      <h4>MORE</h4>
+      <a href="#character">MEET THE CHARACTER</a>
+      <a href="#schedule">SCHEDULE</a>
+      <a href="#transmit">TRANSMIT A MESSAGE</a>
+    </div>
+    <div class="footer-col">
+      <h4>STAY TUNED</h4>
+      <!-- PLACEHOLDER: same links as social-grid above -->
+      <a href="#">INSTAGRAM</a>
+      <a href="#">TIKTOK</a>
+      <a href="#">YOUTUBE</a>
+      <a href="#">SPOTIFY</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© <span id="year"></span> KTG MUSIC — ALL BROADCASTS RESERVED</span>
+    <span class="footer-static">END OF TRANSMISSION</span>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
