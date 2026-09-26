@@ -637,6 +637,7 @@ h1, h2, h3, h4, p { margin: 0; }
 
 .video-embed { position: relative; width: 100%; height: 100%; background: #111; }
 .video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; opacity: 0; }
+.video-embed--spotify iframe { inset: 50% 0 auto; height: 152px; transform: translateY(-50%); opacity: 1; }
 .video-embed-fallback {
   position: absolute; inset: 0;
   display: flex;
