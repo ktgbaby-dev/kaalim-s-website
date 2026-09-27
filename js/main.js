@@ -131,7 +131,7 @@
      SCROLL REVEAL — fade/slide sections in as they enter view
   --------------------------------------------------------- */
   var revealTargets = document.querySelectorAll(
-    ".release-card, .program-slot, .now-playing-card, .character-media, .character-copy, .schedule-row, .stay-tuned"
+    ".release-card, .program-slot, .now-playing-card, .character-media, .character-copy, .social-grid"
   );
   revealTargets.forEach(function (el) { el.classList.add("reveal"); });
 
