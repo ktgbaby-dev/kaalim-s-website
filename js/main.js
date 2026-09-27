@@ -159,19 +159,18 @@
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
   /* ---------------------------------------------------------
-     TRANSMIT FORM — placeholder submit handling
-     Swap the fetch/action below for Formspree / Netlify Forms / your API.
+     TRANSMIT — Tally form embed (Tally's widget sizes the iframe to fit)
   --------------------------------------------------------- */
-  var form = document.querySelector(".transmit-form");
-  if (form) {
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      var btn = form.querySelector("button[type=submit]");
-      var original = btn.textContent;
-      btn.textContent = "SIGNAL SENT ✓";
-      form.reset();
-      setTimeout(function () { btn.textContent = original; }, 2400);
-      // PLACEHOLDER: replace this alert-free stub with a real POST to your form endpoint.
-    });
+  var tallyFrame = document.querySelector("iframe[data-tally-src]");
+  if (tallyFrame) {
+    var loadTally = function () {
+      if (typeof Tally !== "undefined") Tally.loadEmbeds();
+      else tallyFrame.src = tallyFrame.dataset.tallySrc;
+    };
+    var tallyScript = document.createElement("script");
+    tallyScript.src = "https://tally.so/widgets/embed.js";
+    tallyScript.onload = loadTally;
+    tallyScript.onerror = loadTally;
+    document.body.appendChild(tallyScript);
   }
 })();
