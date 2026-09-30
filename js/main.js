@@ -131,7 +131,7 @@
      SCROLL REVEAL — fade/slide sections in as they enter view
   --------------------------------------------------------- */
   var revealTargets = document.querySelectorAll(
-    ".release-card, .program-slot, .now-playing-card, .character-media, .character-copy, .social-grid"
+    ".release-card, .program-slot, .now-playing-card, .character-media, .character-copy, .social-grid, .perf-archive"
   );
   revealTargets.forEach(function (el) { el.classList.add("reveal"); });
 
@@ -151,6 +151,44 @@
   } else {
     revealTargets.forEach(function (el) { el.classList.add("in-view"); });
   }
+
+  /* ---------------------------------------------------------
+     PERFORMANCE ARCHIVE — lazy posters, one video at a time
+  --------------------------------------------------------- */
+  var perfVideos = Array.prototype.slice.call(document.querySelectorAll(".perf video"));
+
+  var showPoster = function (video) {
+    if (video.dataset.poster) {
+      video.poster = video.dataset.poster;
+      delete video.dataset.poster;
+    }
+  };
+  if ("IntersectionObserver" in window) {
+    var posterIo = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            showPoster(entry.target);
+            posterIo.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: "400px 0px" }
+    );
+    perfVideos.forEach(function (v) { posterIo.observe(v); });
+  } else {
+    perfVideos.forEach(showPoster);
+  }
+
+  perfVideos.forEach(function (video) {
+    var card = video.closest(".perf");
+    video.addEventListener("play", function () {
+      perfVideos.forEach(function (other) { if (other !== video) other.pause(); });
+      card.classList.add("is-playing");
+    });
+    video.addEventListener("pause", function () { card.classList.remove("is-playing"); });
+    video.addEventListener("ended", function () { card.classList.remove("is-playing"); });
+  });
 
   /* ---------------------------------------------------------
      FOOTER YEAR
